@@ -22,8 +22,14 @@ const tableroJuego = () => {
 tableroJuego ();
 
 const tableroColores = () => {
-
+    for (let i = 0; i < coloresElegidos.length; i++) {
+        let bolaElegida = document.createElement('div');
+        bolaElegida.classList.add('bolasPequeñas');
+        bolaElegida.style.background = coloresElegidos[i];
+        contenedorColoresElegidos.appendChild(bolaElegida);
+    }
 }
+tableroColores();
 
 const tableroRandom = () => {
     for (let i = 0; i < arrayRandom.length; i++) {

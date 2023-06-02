@@ -46,12 +46,13 @@ const tituloNivel = (numero) => {
 
 // el color picker tiene que pintar las bolas vacias
 let colorPicker = document.getElementById('colorPicker');
-console.log (colorPicker.value);
-console.log (arrayBolasVacias);
+let contadorBolas = 0;
 const pintarBola = () => {
-    arrayBolasVacias.map((bola) => bola.style.backgroundColor = colorPicker.value);
-    console.log ('llego aqui');
-    console.log (colorPicker.value);
+    arrayBolasVacias[contadorBolas].style.backgroundColor = colorPicker.value;
+    contadorBolas ++;
+    if (contadorBolas === arrayBolasVacias.length) {
+        colorPicker.disabled = true;
+    }
 }
 const escucharCambioColor = () => {
     colorPicker.addEventListener('change', pintarBola);

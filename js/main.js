@@ -27,10 +27,20 @@ let madreColorPickers = document.getElementById('contenedorColorPickers');
 
 const activarTableroColor = (numero) => {
     desocultarTablero();
+    tituloNivel();
     for (let i = 0; i < numero; i++) {
         const bolasVacias = document.createElement('div');
         bolasVacias.classList.add('bolasVacias');
         madreBolasVacias.appendChild(bolasVacias);
         // const colorPickers = document.createElement
     }
+};
+
+// el titulo de la pagina del color picker debe variar en funcion del nivel 
+let divTitulo = document.getElementById('tituloNivel');
+
+const tituloNivel = () => {
+    let nivelSeleccionado = document.getElementById('nivel4');
+    let textoNivel = nivelSeleccionado.textContent
+    divTitulo.innerHTML = textoNivel;
 };

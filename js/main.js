@@ -21,10 +21,8 @@ const desocultarTablero = () => {
     document.getElementById('paginaColorPicker').classList.remove('tableroOculto');
 };
 
-// segun el nivel hay diferente cantidad de color pickers
+// segun el nivel hay diferente cantidad de bolas vacias
 let madreBolasVacias = document.getElementById('contenedorBolasVacias');
-let madreColorPickers = document.getElementById('contenedorColorPickers');
-
 const activarTableroColor = (numero) => {
     desocultarTablero();
     tituloNivel(numero);
@@ -32,15 +30,23 @@ const activarTableroColor = (numero) => {
         const bolasVacias = document.createElement('div');
         bolasVacias.classList.add('bolasVacias');
         madreBolasVacias.appendChild(bolasVacias);
-        // const colorPickers = document.createElement
     }
 };
 
 // el titulo de la pagina del color picker debe variar en funcion del nivel 
 let divTitulo = document.getElementById('tituloNivel');
-
 const tituloNivel = (numero) => {
     let nivelSeleccionado = document.getElementById(`nivel${numero}`);
     let textoNivel = nivelSeleccionado.textContent
     divTitulo.innerHTML = textoNivel;
 };
+
+// el color picker tiene que pintar las bolas vacias
+let colorPicker = document.getElementById('colorPicker');
+let arrayBolasVacias = Array.from(document.getElementsByClassName('bolasVacias'));
+const pintarBola = () => {
+    arrayBolasVacias.map((bola) => bola.style.background = colorPicker.value)
+}
+const escucharCambioColor = () => {
+    colorPicker.addEventListener('change', pintarBola())
+}

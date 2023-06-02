@@ -11,12 +11,10 @@ const guardarUser = () => {
     sessionStorage.setItem('nombreUser', nombreUser);
     navegarSettings();
     }
-console.log (nombreUser);
 };
 
 // el nivel y el color picker estan en el mismo HTML, el ultimo oculto.
 const desocultarTablero = () => {
-    console.log ('estoy aqui');
     document.getElementById('paginaNiveles').style.display = 'none';
     document.getElementById('paginaColorPicker').classList.remove('tableroOculto');
 };
@@ -34,7 +32,6 @@ const activarTableroColor = (numero) => {
         arrayBolasVacias.push(bolasVacias);
     }
 };
-console.log(arrayBolasVacias);
 
 // el titulo de la pagina del color picker debe variar en funcion del nivel 
 let divTitulo = document.getElementById('tituloNivel');
@@ -47,15 +44,28 @@ const tituloNivel = (numero) => {
 // el color picker tiene que pintar las bolas vacias
 let colorPicker = document.getElementById('colorPicker');
 let contadorBolas = 0;
+let arrayColoresElegidos = [];
 const pintarBola = () => {
     arrayBolasVacias[contadorBolas].style.backgroundColor = colorPicker.value;
+    arrayColoresElegidos.push(colorPicker.value);
     contadorBolas ++;
     if (contadorBolas === arrayBolasVacias.length) {
         colorPicker.disabled = true;
     }
+    almacenarArrayColores();
 }
 const escucharCambioColor = () => {
     colorPicker.addEventListener('change', pintarBola);
 }
 escucharCambioColor();
 
+// necesito el array de los colores seleccionados para el tablero de juego
+const almacenarArrayColores = () => {
+    let coloresAlmacenados = JSON.stringify(arrayColoresElegidos);
+    console.log ('estoy aqui');
+    sessionStorage.setItem('coloresUsuario', coloresAlmacenados);  
+}
+almacenarArrayColores();
+
+// al apretar al enter en la vista del colorpicker empieza el juego
+// game.js

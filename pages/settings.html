@@ -55,21 +55,21 @@
     <div class="container-fluid" id="levelSelectors">
 
         <!-- botones niveles -->
-        <div class="row rowLevel align-items-center" id="mm-levels">
+        <div class="row rowLevel align-items-center" id="paginaNiveles">
             <div class="col">
                 <p class="h1 text-center mb-4">Niveles</p>
                 <div class="container">
                     <div class="row justify-content-center">
                         <a class="idboton mmLevelButton col-7 col-sm-4 col-md-3 col-md-2 col-lg-2 col-xl-2 p-0 btn btn-outline-light mm-button my-1 mx-5 mx-md-1 py-2"
-                            role="button" id="levelOne" onclick=bubbles4()>
+                            role="button" id="levelOne" onclick="activarTableroColor(4)">
                             <span class="sea">level</span>
                         </a>
                         <a class="idboton mmLevelButton col-7 col-sm-4 col-md-3 col-md-2 col-lg-2 col-xl-2 p-0 btn btn-outline-light mm-button my-1 mx-5 mx-md-1 py-2"
-                            role="button" id="levelTwo" onclick=bubbles5()>
+                            role="button" id="levelTwo" onclick=activarTableroColor(5)>
                             <span class="sea">level</span><span class="almostWhite">++</span>
                         </a>
                         <a class="idboton mmLevelButton col-7 col-sm-4 col-md-3 col-md-2 col-lg-2 col-xl-2 p-0 btn btn-outline-light mm-button my-1 mx-5 mx-md-1 py-2"
-                            role="button" id="levelThree" onclick=bubbles6()>
+                            role="button" id="levelThree" onclick=activarTableroColor(6)>
                             <span class="sea">level</span><span class="almostWhite">+=2</span>
                         </a>
                     </div>
@@ -77,30 +77,22 @@
             </div>
         </div>
 
-        <!-- level - bubbles -->
-        <div class="row pageColorPicker align-items-center mm-hidden" id="mm-levelOneBubbles">
+        <!-- pagina color-pickers -->
+        <div class="row pageColorPicker align-items-center tableroOculto" id="paginaColorPicker">
             <div class="col">
-                <!-- title -->
-                <p class="h1 text-center" id="mm-levelEasy">Level</p>
-                <!-- empty bubbles -->
-                <div class="row m-0 p-0 my-3 justify-content-center ">
-                    <div class="circleColorEasy m-2" id="bub-picker01"></div>
-                    <div class="circleColorEasy m-2" id="bub-picker02"></div>
-                    <div class="circleColorEasy m-2" id="bub-picker03"></div>
-                    <div class="circleColorEasy m-2" id="bub-picker04"></div>
-                </div>
-                <!-- subtitle -->
+                <!-- Titulo -->
+                <p class="h1 text-center" id="tituloNivel"></p>
+                <!-- Bolas Vacias-->
+                <div class="row m-0 p-0 my-3 justify-content-center" id="contenedorBolasVacias"></div>
+                <!-- Subtitulo -->
                 <div class="row m-0 p-0">
                     <p class="text-center m-1">Selector de colores</p>
                 </div>
-                <!-- color pickers -->
-                <div class="row m-0 p-0 justify-content-center ">
+                <!-- Color pickers -->
+                <div class="row m-0 p-0 justify-content-center" id="contenedorColorPickers">
                     <input type="color" id="picker00" name="pickerEasy" value="#ff8af5" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker01" name="pickerEasy" value="#65e66e" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker02" name="pickerEasy" value="#ffe770" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker03" name="pickerEasy" value="#85e0ff" class="mx-2 mx-md-3 my-2 p-0">
                 </div>
-                <!-- keypad -->
+                <!-- Enter de teclado -->
                 <div class="row m-0 p-0 mt-4 justify-content-center ">
                     <div class="enterButton keypad d-flex justify-content-end" onclick="game()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -112,93 +104,7 @@
                 </div>
                 <!-- comentario -->
                 <div class="row m-0 p-0 mt-5">
-                    <p class="text-center m-1 comment" id="fourth-comment"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- level2 - bubbles -->
-        <div class="row pageColorPicker align-items-center mm-hidden" id="mm-levelTwoBubbles">
-            <div class="col">
-                <!-- title -->
-                <p class="h1 text-center" id="mm-levelMed">Level++</p>
-                <!-- empty bubbles -->
-                <div class="row m-0 p-0 my-3 justify-content-center ">
-                    <div class="circleColorMedium m-2"></div>
-                    <div class="circleColorMedium m-2"></div>
-                    <div class="circleColorMedium m-2"></div>
-                    <div class="circleColorMedium m-2"></div>
-                    <div class="circleColorMedium m-2"></div>
-                </div>
-                <!-- subtitle -->
-                <div class="row m-0 p-0">
-                    <p class="text-center m-1">Selector de colores</p>
-                </div>
-                <!-- color pickers -->
-                <div class="row m-0 p-0 justify-content-center ">
-                    <input type="color" id="picker04" name="pickerMedium" value="#ff8af5" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker05" name="pickerMedium" value="#65e66e" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker06" name="pickerMedium" value="#ffe770" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker07" name="pickerMedium" value="#85e0ff" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker08" name="pickerMedium" value="#ff9924" class="mx-2 mx-md-3 my-2 p-0">
-                </div>
-                <!-- keypad -->
-                <div class="row m-0 p-0 mt-4 justify-content-center">
-                    <div class="enterButton keypad d-flex justify-content-end" onclick="game()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="m-0 p-0 mx-1 bi bi-arrow-return-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
-                        </svg>
-                    </div>
-                </div>
-                <!-- comentario -->
-                <div class="row m-0 p-0 mt-5">
-                    <p class="text-center m-1 comment" id="fifth-comment"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- level3 - bubbles -->
-        <div class="row pageColorPicker align-items-center mm-hidden" id="mm-levelThreeBubbles">
-            <div class="col">
-                <!-- title -->
-                <p class="h1 text-center" id="mm-levelDif">Level+=2</p>
-                <!-- empty bubbles -->
-                <div class="row m-0 p-0 my-3 justify-content-center ">
-                    <div class="circleColorDif m-2"></div>
-                    <div class="circleColorDif m-2"></div>
-                    <div class="circleColorDif m-2"></div>
-                    <div class="circleColorDif m-2"></div>
-                    <div class="circleColorDif m-2"></div>
-                    <div class="circleColorDif m-2"></div>
-                </div>
-                <!-- subtitle -->
-                <div class="row m-0 p-0">
-                    <p class="text-center m-1">Selector de colores</p>
-                </div>
-                <!-- color pickers -->
-                <div class="row m-0 p-0 justify-content-center ">
-                    <input type="color" id="picker09" name="pickerDif" value="#66a8ff" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker10" name="pickerDif" value="#65e66e" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker11" name="pickerDif" value="#ffe770" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker12" name="pickerDif" value="#ff8af5" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker13" name="pickerDif" value="#ff9924" class="mx-2 mx-md-3 my-2 p-0">
-                    <input type="color" id="picker14" name="pickerDif" value="#67cccc" class="mx-2 mx-md-3 my-2 p-0">
-                </div>
-                <!-- keypad -->
-                <div class="row m-0 p-0 mt-4 justify-content-center">
-                    <div class="enterButton keypad d-flex justify-content-end" onclick="game()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="m-0 p-0 mx-1 bi bi-arrow-return-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
-                        </svg>
-                    </div>
-                </div>
-                <!-- comentarios -->
-                <div class="row m-0 p-0 mt-2 mt-md-3 bg-primaruy">
-                    <p class="text-center comment" id="sixth-comment"></p>
+                    <p class="text-center m-1 comment" id="second-comment"></p>
                 </div>
             </div>
         </div>

@@ -13,3 +13,24 @@ const guardarUser = () => {
     }
 console.log (nombreUser);
 };
+
+// el nivel y el color picker estan en el mismo HTML, el ultimo oculto.
+const desocultarTablero = () => {
+    console.log ('estoy aqui');
+    document.getElementById('paginaNiveles').style.display = 'none';
+    document.getElementById('paginaColorPicker').classList.remove('tableroOculto');
+};
+
+// segun el nivel hay diferente cantidad de color pickers
+let madreBolasVacias = document.getElementById('contenedorBolasVacias');
+let madreColorPickers = document.getElementById('contenedorColorPickers');
+
+const activarTableroColor = (numero) => {
+    desocultarTablero();
+    for (let i = 0; i < numero; i++) {
+        const bolasVacias = document.createElement('div');
+        bolasVacias.classList.add('bolasVacias');
+        madreBolasVacias.appendChild(bolasVacias);
+        // const colorPickers = document.createElement
+    }
+};

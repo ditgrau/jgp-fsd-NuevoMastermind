@@ -128,11 +128,10 @@ input[type="color"] {
     width: 2rem;
 }
 
-.circleColorEasy,
-.circleColorMedium,
-.circleColorDif {
+.bolasVacias {
     height: 4rem;
     width: 4rem;
+    margin: 0.3rem;
     border-radius: 50%;
     border: solid var(--color-third) 0.1rem;
 }
@@ -237,7 +236,7 @@ input[type="color"] {
     align-items: center;
 }
 
-.mm-hidden {
+.tableroOculto {
     display: none;
 }
 

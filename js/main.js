@@ -58,3 +58,4 @@ const escucharCambioColor = () => {
     colorPicker.addEventListener('change', pintarBola);
 }
 escucharCambioColor();
+

@@ -32,42 +32,28 @@ body {
     height: 90vh;
 }
 
-.mm-mainBody {
+.mainBody {
     height: 100vh;
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-.mm-playerBody {
+.mediumBody {
     height: 75vh;
     display: flex;
     align-items: center;
 }
 
-.secondBody {
-    height: 100vh;
-    display: flex;
-    align-items: end;
-    margin: 0;
-    padding: 0;
+.tableroOculto {
+    display: none;
 }
 
-.mm-thirdBody {
-    height: 35vh;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+.myPic {
+    height: 15rem;
+    width: 15rem;
 }
-
-.rowLevel {
-    height: 70vh;
-}
-
-.pageColorPicker {
-    height: 75vh;
-}
-
 
 .mm-nav {
     background-color: var(--color-second);
@@ -93,10 +79,7 @@ body {
     border-radius: 0.5rem;
 }
 
-.mm-myPic {
-    height: 15rem;
-    width: 15rem;
-}
+
 
 .supertitle {
     font-size: 5rem;
@@ -205,6 +188,7 @@ input[type="color"] {
     color: var(--color-selection);
 }
 
+
 .circleColorBoard {
     height: 3rem;
     width: 3rem;
@@ -236,9 +220,7 @@ input[type="color"] {
     align-items: center;
 }
 
-.tableroOculto {
-    display: none;
-}
+
 
 .checkButton {
     height: 3rem;

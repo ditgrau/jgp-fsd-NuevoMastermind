@@ -62,7 +62,6 @@ escucharCambioColor();
 // necesito el array de los colores seleccionados para el tablero de juego
 const almacenarArrayColores = () => {
     let coloresAlmacenados = JSON.stringify(arrayColoresElegidos);
-    console.log ('estoy aqui');
     sessionStorage.setItem('coloresUsuario', coloresAlmacenados);  
 }
 almacenarArrayColores();

@@ -5,11 +5,8 @@ let coloresElegidos = JSON.parse(sessionStorage.getItem ('coloresUsuario'));
 let arrayRandom = [];
 const combiRandom = () => {
     for (let i = 0; i < 4; i++) {
-        console.log (coloresElegidos);
         let numIndice = Math.floor(Math.random()*coloresElegidos.length);
-        console.log (numIndice);
         arrayRandom.push(coloresElegidos[numIndice]);
-        console.log (arrayRandom);
     }
 }
 combiRandom();
@@ -29,5 +26,11 @@ const tableroColores = () => {
 }
 
 const tableroRandom = () => {
-
+    for (let i = 0; i < arrayRandom.length; i++) {
+        let bolaRandom = document.createElement('div');
+        bolaRandom.classList.add('bolasVacias');
+        bolaRandom.style.background = arrayRandom[i];
+        contenedorCombiRandom.appendChild(bolaRandom);
+    }
 }
+tableroRandom ();

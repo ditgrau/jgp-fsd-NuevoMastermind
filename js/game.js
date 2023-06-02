@@ -66,3 +66,14 @@ const tableroRandom = () => {
     }
 }
 tableroRandom ();
+
+// al coger el color del picker el dato esta en hexadecimal, con esta funcion lo convierto a RGB
+let randomRGB = [];
+const coloresRGB = () => {
+    let arrayBolasRandom = Array.from(contenedorCombiRandom.getElementsByClassName('bolasVacias'));
+    arrayBolasRandom.map((bola) => {
+        let guardarRandom = bola.style.backgroundColor
+        randomRGB.push(guardarRandom);
+    })
+}
+coloresRGB ();

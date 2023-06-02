@@ -27,7 +27,7 @@ let madreColorPickers = document.getElementById('contenedorColorPickers');
 
 const activarTableroColor = (numero) => {
     desocultarTablero();
-    tituloNivel();
+    tituloNivel(numero);
     for (let i = 0; i < numero; i++) {
         const bolasVacias = document.createElement('div');
         bolasVacias.classList.add('bolasVacias');
@@ -39,8 +39,8 @@ const activarTableroColor = (numero) => {
 // el titulo de la pagina del color picker debe variar en funcion del nivel 
 let divTitulo = document.getElementById('tituloNivel');
 
-const tituloNivel = () => {
-    let nivelSeleccionado = document.getElementById('nivel4');
+const tituloNivel = (numero) => {
+    let nivelSeleccionado = document.getElementById(`nivel${numero}`);
     let textoNivel = nivelSeleccionado.textContent
     divTitulo.innerHTML = textoNivel;
 };

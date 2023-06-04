@@ -87,23 +87,17 @@ let numeroFila = 0
 let numeroClic = 0
 
 const clicCeldas = (bolita) => {
-    console.log ('he entrado aqui tambien');
-    console.log (coloresElegidos);
-    console.log (coloresElegidos[numeroClic]);
-    bolita.style.backgroundColor = '#000045';
+    
+    
     // bolita.style.backgroundColor = coloresElegidos[numeroClic]; 
-    console.log ('aqui llego');
+    
     numeroClic ++;
-    console.log (numeroClic);
-    console.log (numeroFila);
-
 }
 const clicFilas = () => {
-    console.log (numeroFila);
     let filaMadre = Array.from(document.getElementsByClassName(`filaMadre${numeroFila}`));
     let pistas = Array.from(document.getElementsByClassName(`pistas${numeroFila}`));
-    console.log ('he entrado');
     filaMadre.forEach( (bolita) => {
+        bolita.style.backgroundColor = '#000045';
         bolita.addEventListener('click', clicCeldas(bolita));
         }
     ) 

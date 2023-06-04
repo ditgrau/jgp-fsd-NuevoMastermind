@@ -27,6 +27,7 @@ const tableroJuego = (filas) => {
         for (let j = 0; j < 4; j++) {
             let celdaTablero = document.createElement('div');
             celdaTablero.classList.add('bolasPequeñas');
+            celdaTablero.classList.add('cursorPointer');
             filaTablero.appendChild(celdaTablero);
             celdaTablero.classList.add(`pistas${i}`);
             
@@ -82,11 +83,33 @@ const coloresRGB = () => {
 coloresRGB ();
 
 // para que el usuario seleccione el color con el que pintar las bolas
-let filaMadre = Array.from(document.getElementsByClassName(`filaMadre1`));
-let pistas = Array.from(document.getElementsByClassName('`pistas1`'));
-console.log (pistas);
-console.log (filaMadre);
+let numeroFila = 0
+let numeroClic = 0
 
-const clicFilas = () => {
+const clicCeldas = (bolita) => {
+    console.log ('he entrado aqui tambien');
+    console.log (coloresElegidos);
+    console.log (coloresElegidos[numeroClic]);
+    bolita.style.backgroundColor = '#000045';
+    // bolita.style.backgroundColor = coloresElegidos[numeroClic]; 
+    console.log ('aqui llego');
+    numeroClic ++;
+    console.log (numeroClic);
+    console.log (numeroFila);
 
 }
+const clicFilas = () => {
+    console.log (numeroFila);
+    let filaMadre = Array.from(document.getElementsByClassName(`filaMadre${numeroFila}`));
+    let pistas = Array.from(document.getElementsByClassName(`pistas${numeroFila}`));
+    console.log ('he entrado');
+    filaMadre.forEach( (bolita) => {
+        bolita.addEventListener('click', clicCeldas(bolita));
+        }
+    ) 
+    numeroFila ++
+    console.log (numeroFila);
+}
+clicFilas ();
+
+

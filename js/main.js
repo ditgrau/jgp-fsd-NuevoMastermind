@@ -67,5 +67,10 @@ const almacenarArrayColores = () => {
 almacenarArrayColores();
 
 // al apretar al enter en la vista del colorpicker empieza el juego
-let aJugar = () => window.location.href = './game.html';
+let aJugar = () => {
+    if(arrayColoresElegidos.length === arrayBolasVacias.length && arrayColoresElegidos.length!= 0) {
+        window.location.href = './game.html';
+    }
+}
 // game.js
+

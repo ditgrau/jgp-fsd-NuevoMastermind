@@ -22,11 +22,14 @@ const tableroJuego = (filas) => {
         let filaTablero = document.createElement('div');
         filaTablero.classList.add('row');
         contenedorTablero.appendChild(filaTablero);
+        filaTablero.classList.add(`filaMadre${i}`);
 
         for (let j = 0; j < 4; j++) {
             let celdaTablero = document.createElement('div');
             celdaTablero.classList.add('bolasPequeñas');
             filaTablero.appendChild(celdaTablero);
+            celdaTablero.classList.add(`pistas${i}`);
+            
         }
 
         let pistasTablero = document.createElement('div');
@@ -67,7 +70,7 @@ const tableroRandom = () => {
 }
 tableroRandom ();
 
-// al coger el color del picker el dato esta en hexadecimal, con esta funcion lo convierto a RGB
+// al coger el color del picker el dato esta en hexadecimal, con esta funcion lo convierto a RGB para las comparaciones
 let randomRGB = [];
 const coloresRGB = () => {
     let arrayBolasRandom = Array.from(contenedorCombiRandom.getElementsByClassName('bolasVacias'));
@@ -77,3 +80,13 @@ const coloresRGB = () => {
     })
 }
 coloresRGB ();
+
+// para que el usuario seleccione el color con el que pintar las bolas
+let filaMadre = Array.from(document.getElementsByClassName(`filaMadre1`));
+let pistas = Array.from(document.getElementsByClassName('`pistas1`'));
+console.log (pistas);
+console.log (filaMadre);
+
+const clicFilas = () => {
+
+}

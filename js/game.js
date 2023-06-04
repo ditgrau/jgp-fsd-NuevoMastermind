@@ -102,16 +102,14 @@ const iteraColor = (event) => {
         numeroClic = 0;
     }
 }
-
+let celdas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
 const clicCeldas = () => {
-    let celdas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
     celdas.forEach((bola) =>{
         bola.addEventListener('click', iteraColor)
         })
 }
-
+let fila = Array.from(document.getElementsByClassName(`fila${numeroFila}`));
 const clicFilas = () => {
-    let fila = Array.from(document.getElementsByClassName(`fila${numeroFila}`));
     fila.forEach( (f) => {
         clicCeldas();
         }
@@ -121,4 +119,10 @@ const clicFilas = () => {
 }
 clicFilas ();
 
+// boton de delete
 
+const borrar = () => {
+    celdas.forEach((bola) =>{
+    bola.style.backgroundColor = "";
+    })
+}

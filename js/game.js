@@ -152,12 +152,11 @@ const ejecucionFilas = () => {
     filasClicables();
 }
 
+//// boton de delete
 
-
-// // boton de delete
-
-// const borrar = () => {
-//     celdas.forEach((bola) =>{
-//     bola.style.backgroundColor = "";
-//     })
-// }
+const borrar = () => { 
+    let filaBolitas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
+    filaBolitas.forEach((bola)=>{
+        bola.style.backgroundColor = "";
+    })
+}

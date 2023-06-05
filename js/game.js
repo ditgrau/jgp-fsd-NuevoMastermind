@@ -92,8 +92,7 @@ coloresRGB ();
 // para que el usuario seleccione el color con el que pintar las bolas
 let numeroFila = 0;
 let numeroClic = 0;
-let combinacionElegida = [];
-let fila = Array.from(document.getElementsByClassName(`fila${numeroFila}`));
+// let combinacionElegida = [];
 
 const iteraColor = (event) => {
     const bola = event.target;
@@ -105,22 +104,34 @@ const iteraColor = (event) => {
     }
 }
 
-const clicCeldas = () => {
-    let celdas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
-    celdas.forEach((bola) =>{
-        bola.addEventListener('click', iteraColor)
-        })
+let combinacionActual = [];
+const filasClicables = () => {
+    let filasClicables = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
+    filasClicables.forEach(bola => bola.addEventListener('click', iteraColor));
+} 
+
+filasClicables ();
+
+const comprobar = () => {
+
+    let filaBolitas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
+    if(filaBolitas.find(bola => !bola.style.backgroundColor)) return;
+
+    filaBolitas.map((bolas)=>{
+        bolaBackground = bolas.style.backgroundColor
+        combinacionActual.push(bolaBackground);
+    })
+    console.log (combinacionActual);
+
+    filaBolitas.forEach(bola => {
+        bola.removeEventListener("click", iteraColor)
+    })
+    numeroFila++;
+    combinacionActual = [];
+    filasClicables();
 }
 
-const clicFilas = () => {
-    fila.forEach( (f) => {
-        clicCeldas();
-        }
-    ) 
-    numeroFila ++
-    numeroClic = 0
-}
-clicFilas ();
+
 
 // // boton de delete
 
@@ -128,12 +139,4 @@ clicFilas ();
 //     celdas.forEach((bola) =>{
 //     bola.style.backgroundColor = "";
 //     })
-// }
-
-// const capturaColores = () => {
-//     fila.map ((bola) => {
-//         let capturarCombinacion = bola.style.background //aqui
-//         combinacionElegida.push(capturarCombinacion);
-//     })
-//     console.log (combinacionElegida);
 // }

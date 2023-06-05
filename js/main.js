@@ -42,4 +42,35 @@ const tituloNivel = (numero) => {
 };
 
 
+  // cuando el usuario introduce su combinacion aparecen las pistas segun la correspondencia con la combinacion ganadora
+    // const comprobacion = () => {
+    //     let arrayPistas = [];
+    //     let combiCPU = randomRGB.slice();
+    //     let combiUsuario = combinacionActual.slice();
+    //     console.log (arrayPistas);
+    //     console.log (combiCPU);
+    //     console.log (combiUsuario); 
+    
+    //     for (let i = 0; i < 4; i++) {
+    //         if (combiUsuario.includes(combiCPU[i]) && combiCPU[i] === combiUsuario[i]){
+    //             combiCPU[i] = null;
+    //             combiUsuario = null;
+    //             arrayPistas.push('#000000');
+    //         }  
+    //         console.log (arrayPistas);
+    //         console.log (combiCPU);
+    //         console.log (combiUsuario); 
+    //     }
+    //     for (let j = 0; j < 4; j++) {
+    //         if (combiCPU.includes(combiUsuario[j]) && combiUsuario[j] !== null){
+    //             let posicionRandom = combiCPU.indexOf(combiUsuario[j]);
+    //             combiCPU[posicionRandom] = null;
+    //             combiUsuario[j] = null;
+    //             arrayPistas.push('#FFFFFF');
+    //         }   
+    //     }
+    //     console.log (arrayPistas);
+    //     console.log (combiCPU);
+    //     console.log (combiUsuario);
+    // }
 

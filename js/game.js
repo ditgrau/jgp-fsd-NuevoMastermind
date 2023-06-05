@@ -21,15 +21,13 @@ const tableroJuego = (filas) => {
         let filaTablero = document.createElement('div');
         filaTablero.classList.add('row');
         contenedorTablero.appendChild(filaTablero);
-        filaTablero.classList.add(`fila${i}`);
 
         for (let j = 0; j < 4; j++) {
             let celdaTablero = document.createElement('div');
             celdaTablero.classList.add('bolasPequeñas');
             celdaTablero.classList.add('cursorPointer');
             filaTablero.appendChild(celdaTablero);
-            celdaTablero.classList.add(`celda${i}`);
-            
+            celdaTablero.classList.add(`celda${i}`);   
         }
 
         let pistasTablero = document.createElement('div');
@@ -40,6 +38,7 @@ const tableroJuego = (filas) => {
             let pistas = document.createElement('div');
             pistas.classList.add('pistas');
             pistasTablero.appendChild(pistas);
+            pistas.classList.add(`pistas${i}`);
         }
     }
     
@@ -92,7 +91,7 @@ coloresRGB ();
 // para que el usuario seleccione el color con el que pintar las bolas
 let numeroFila = 0;
 let numeroClic = 0;
-// let combinacionElegida = [];
+let combinacionActual = [];
 
 const iteraColor = (event) => {
     const bola = event.target;
@@ -104,24 +103,46 @@ const iteraColor = (event) => {
     }
 }
 
-let combinacionActual = [];
 const filasClicables = () => {
     let filasClicables = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
     filasClicables.forEach(bola => bola.addEventListener('click', iteraColor));
 } 
-
 filasClicables ();
 
-const comprobar = () => {
-
+const ejecucionFilas = () => {
     let filaBolitas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
     if(filaBolitas.find(bola => !bola.style.backgroundColor)) return;
-
     filaBolitas.map((bolas)=>{
         bolaBackground = bolas.style.backgroundColor
         combinacionActual.push(bolaBackground);
     })
-    console.log (combinacionActual);
+    
+    let combiUser = combinacionActual.slice();
+    let combiCPU = randomRGB.slice();
+    let arrayPistas = [];
+        // cuando el usuario introduce su combinacion hay que ver coincidencias con la combinacion ganadora 
+        for (let i = 0; i < 4; i++) {
+            if (combiUser.includes(combiCPU[i]) && combiCPU[i] === combiUser[i]) {
+                combiCPU[i] = null;
+                combiUser[i] = null;
+                arrayPistas.push('#000000');
+            } 
+        }
+        for (let j = 0; j < 4; j++) { 
+            if (combiUser[j] !== null && combiCPU.includes(combiUser[j])){
+                let posicion = combiCPU.indexOf(combiUser[j]);
+                combiCPU[posicion] = null;
+                combiUser[j] = null;
+                arrayPistas.push('#FFFFFF');
+            }
+        }
+        // las pistas blancas y negras aparecen para ayudar al usuario a resolver la combinacion
+
+        let pistas = Array.from(document.getElementsByClassName(`pistas${numeroFila}`));
+        let blancasNegras = arrayPistas.sort();
+        for (let k = 0; k < 4; k++) {
+            pistas[k].style.backgroundColor = blancasNegras[k];  
+        }
 
     filaBolitas.forEach(bola => {
         bola.removeEventListener("click", iteraColor)

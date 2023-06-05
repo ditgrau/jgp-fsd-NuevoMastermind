@@ -91,24 +91,27 @@ coloresRGB ();
 
 // para que el usuario seleccione el color con el que pintar las bolas
 let numeroFila = 0;
-let numeroBola = 0;
 let numeroClic = 0;
+let combinacionElegida = [];
+let fila = Array.from(document.getElementsByClassName(`fila${numeroFila}`));
 
 const iteraColor = (event) => {
     const bola = event.target;
     bola.style.backgroundColor = coloresElegidos[numeroClic];
     numeroClic++
+
     if (numeroClic===coloresElegidos.length){
         numeroClic = 0;
     }
 }
-let celdas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
+
 const clicCeldas = () => {
+    let celdas = Array.from(document.getElementsByClassName(`celda${numeroFila}`));
     celdas.forEach((bola) =>{
         bola.addEventListener('click', iteraColor)
         })
 }
-let fila = Array.from(document.getElementsByClassName(`fila${numeroFila}`));
+
 const clicFilas = () => {
     fila.forEach( (f) => {
         clicCeldas();
@@ -119,10 +122,18 @@ const clicFilas = () => {
 }
 clicFilas ();
 
-// boton de delete
+// // boton de delete
 
-const borrar = () => {
-    celdas.forEach((bola) =>{
-    bola.style.backgroundColor = "";
-    })
-}
+// const borrar = () => {
+//     celdas.forEach((bola) =>{
+//     bola.style.backgroundColor = "";
+//     })
+// }
+
+// const capturaColores = () => {
+//     fila.map ((bola) => {
+//         let capturarCombinacion = bola.style.background //aqui
+//         combinacionElegida.push(capturarCombinacion);
+//     })
+//     console.log (combinacionElegida);
+// }

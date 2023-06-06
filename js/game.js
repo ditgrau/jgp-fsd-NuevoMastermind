@@ -145,7 +145,7 @@ const ejecucionFilas = () => {
         }
 
         if (blancasNegras.every(pista => pista === '#000000') && blancasNegras.length === 4) {
-            
+            document.getElementById('combiRandom').classList.remove('tableroOculto');
         }
 
 

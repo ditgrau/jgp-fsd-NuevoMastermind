@@ -144,6 +144,11 @@ const ejecucionFilas = () => {
             pistas[k].style.backgroundColor = blancasNegras[k];  
         }
 
+        if (blancasNegras.every(pista => pista === '#000000') && blancasNegras.length === 4) {
+            
+        }
+
+
     filaBolitas.forEach(bola => {
         bola.removeEventListener("click", iteraColor)
     })
